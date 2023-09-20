@@ -1,6 +1,10 @@
 [
   {
-    "Action": [],
-    "Resource": []
+    "Action": ["timestream:DescribeEndpoints"],
+    "Resource": ["*"]
+  },
+  {
+    "Action": ["timestream:WriteRecords"],
+    "Resource": ["arn:aws:timestream:us-east-1:137340531829:database/record-suzusys/table/cycle"]
   }
 ]
