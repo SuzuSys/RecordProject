@@ -5,5 +5,23 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
+  },
+  "parameters": {
+    "AMPLIFY_function_RecordFunctionTest_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "RecordFunctionTest"
+        }
+      ]
+    },
+    "AMPLIFY_function_RecordFunctionTest_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "RecordFunctionTest"
+        }
+      ]
+    }
   }
 }
