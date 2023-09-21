@@ -15,11 +15,14 @@
       "function": {
         "RecordFunctionTest": {
           "deploymentBucketName": "amplify-recordamplify-dev-101512-deployment",
-          "s3Key": "amplify-builds/RecordFunctionTest-725731432b67424f5769-build.zip"
+          "s3Key": "amplify-builds/RecordFunctionTest-724b58346f493433645a-build.zip"
         }
       },
       "auth": {
         "recordamplify19932df9": {}
+      },
+      "api": {
+        "recordamplify": {}
       }
     }
   }

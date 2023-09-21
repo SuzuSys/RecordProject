@@ -1,12 +1,12 @@
 import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
-import vuetify from './plugins/vuetify'
-import { loadFonts } from './plugins/webfontloader'
+import AuthContainer from './AuthContainer.vue'
+import router from '@/router'
+import vuetify from '@/plugins/vuetify'
+import { loadFonts } from '@/plugins/webfontloader'
 
 loadFonts()
 
-createApp(App)
+createApp(AuthContainer)
   .use(router)
   .use(vuetify)
   .mount('#app')
