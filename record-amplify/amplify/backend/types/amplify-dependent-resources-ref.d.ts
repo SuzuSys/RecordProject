@@ -9,8 +9,6 @@ export type AmplifyDependentResourcesAttributes = {
     "recordamplify19932df9": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
-      "IdentityPoolId": "string",
-      "IdentityPoolName": "string",
       "UserPoolArn": "string",
       "UserPoolId": "string",
       "UserPoolName": "string"
@@ -18,6 +16,13 @@ export type AmplifyDependentResourcesAttributes = {
   },
   "function": {
     "RecordFunctionTest": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "RecordFunctionTestEcho": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",

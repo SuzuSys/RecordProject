@@ -2,12 +2,42 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getTODO = /* GraphQL */ `
-  query GetTODO($id: ID!) {
-    getTODO(id: $id) {
+import * as APITypes from "../API";
+type GeneratedQuery<InputType, OutputType> = string & {
+  __generatedQueryInput: InputType;
+  __generatedQueryOutput: OutputType;
+};
+
+export const echo = /* GraphQL */ `query Echo($txt: String) {
+  echo(txt: $txt)
+}
+` as GeneratedQuery<APITypes.EchoQueryVariables, APITypes.EchoQuery>;
+export const getTODO = /* GraphQL */ `query GetTODO($id: ID!) {
+  getTODO(id: $id) {
+    id
+    label
+    predecessor
+    successor
+    deadline
+    description
+    createdAt
+    updatedAt
+    owner
+    __typename
+  }
+}
+` as GeneratedQuery<APITypes.GetTODOQueryVariables, APITypes.GetTODOQuery>;
+export const listTODOS = /* GraphQL */ `query ListTODOS(
+  $filter: ModelTODOFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listTODOS(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
       id
       label
-      priority
+      predecessor
+      successor
       deadline
       description
       createdAt
@@ -15,28 +45,8 @@ export const getTODO = /* GraphQL */ `
       owner
       __typename
     }
+    nextToken
+    __typename
   }
-`;
-export const listTODOS = /* GraphQL */ `
-  query ListTODOS(
-    $filter: ModelTODOFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listTODOS(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        label
-        priority
-        deadline
-        description
-        createdAt
-        updatedAt
-        owner
-        __typename
-      }
-      nextToken
-      __typename
-    }
-  }
-`;
+}
+` as GeneratedQuery<APITypes.ListTODOSQueryVariables, APITypes.ListTODOSQuery>;

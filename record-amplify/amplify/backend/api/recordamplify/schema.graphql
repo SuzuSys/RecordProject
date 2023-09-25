@@ -7,7 +7,14 @@ type TODO @model @auth(rules: [
 ]) {
   id: ID!
   label: String!
-  priority: Int!
+  predecessor: String
+  successor: String
   deadline: AWSDateTime # timestamp
   description: String
+}
+
+type Query {
+  echo(txt: String): String @function(name: "RecordFunctionTestEcho-${env}") @auth(rules: [
+    { allow: private }
+  ])
 }
