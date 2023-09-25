@@ -5,14 +5,16 @@
 export type CreateTODOInput = {
   id?: string | null,
   label: string,
-  priority: number,
+  predecessor?: string | null,
+  successor?: string | null,
   deadline?: string | null,
   description?: string | null,
 };
 
 export type ModelTODOConditionInput = {
   label?: ModelStringInput | null,
-  priority?: ModelIntInput | null,
+  predecessor?: ModelStringInput | null,
+  successor?: ModelStringInput | null,
   deadline?: ModelStringInput | null,
   description?: ModelStringInput | null,
   and?: Array< ModelTODOConditionInput | null > | null,
@@ -60,23 +62,12 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
-export type ModelIntInput = {
-  ne?: number | null,
-  eq?: number | null,
-  le?: number | null,
-  lt?: number | null,
-  ge?: number | null,
-  gt?: number | null,
-  between?: Array< number | null > | null,
-  attributeExists?: boolean | null,
-  attributeType?: ModelAttributeTypes | null,
-};
-
 export type TODO = {
   __typename: "TODO",
   id: string,
   label: string,
-  priority: number,
+  predecessor?: string | null,
+  successor?: string | null,
   deadline?: string | null,
   description?: string | null,
   createdAt: string,
@@ -87,7 +78,8 @@ export type TODO = {
 export type UpdateTODOInput = {
   id: string,
   label?: string | null,
-  priority?: number | null,
+  predecessor?: string | null,
+  successor?: string | null,
   deadline?: string | null,
   description?: string | null,
 };
@@ -99,7 +91,8 @@ export type DeleteTODOInput = {
 export type ModelTODOFilterInput = {
   id?: ModelIDInput | null,
   label?: ModelStringInput | null,
-  priority?: ModelIntInput | null,
+  predecessor?: ModelStringInput | null,
+  successor?: ModelStringInput | null,
   deadline?: ModelStringInput | null,
   description?: ModelStringInput | null,
   and?: Array< ModelTODOFilterInput | null > | null,
@@ -132,7 +125,8 @@ export type ModelTODOConnection = {
 export type ModelSubscriptionTODOFilterInput = {
   id?: ModelSubscriptionIDInput | null,
   label?: ModelSubscriptionStringInput | null,
-  priority?: ModelSubscriptionIntInput | null,
+  predecessor?: ModelSubscriptionStringInput | null,
+  successor?: ModelSubscriptionStringInput | null,
   deadline?: ModelSubscriptionStringInput | null,
   description?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionTODOFilterInput | null > | null,
@@ -169,18 +163,6 @@ export type ModelSubscriptionStringInput = {
   notIn?: Array< string | null > | null,
 };
 
-export type ModelSubscriptionIntInput = {
-  ne?: number | null,
-  eq?: number | null,
-  le?: number | null,
-  lt?: number | null,
-  ge?: number | null,
-  gt?: number | null,
-  between?: Array< number | null > | null,
-  in?: Array< number | null > | null,
-  notIn?: Array< number | null > | null,
-};
-
 export type CreateTODOMutationVariables = {
   input: CreateTODOInput,
   condition?: ModelTODOConditionInput | null,
@@ -191,7 +173,8 @@ export type CreateTODOMutation = {
     __typename: "TODO",
     id: string,
     label: string,
-    priority: number,
+    predecessor?: string | null,
+    successor?: string | null,
     deadline?: string | null,
     description?: string | null,
     createdAt: string,
@@ -210,7 +193,8 @@ export type UpdateTODOMutation = {
     __typename: "TODO",
     id: string,
     label: string,
-    priority: number,
+    predecessor?: string | null,
+    successor?: string | null,
     deadline?: string | null,
     description?: string | null,
     createdAt: string,
@@ -229,13 +213,22 @@ export type DeleteTODOMutation = {
     __typename: "TODO",
     id: string,
     label: string,
-    priority: number,
+    predecessor?: string | null,
+    successor?: string | null,
     deadline?: string | null,
     description?: string | null,
     createdAt: string,
     updatedAt: string,
     owner?: string | null,
   } | null,
+};
+
+export type EchoQueryVariables = {
+  txt?: string | null,
+};
+
+export type EchoQuery = {
+  echo?: string | null,
 };
 
 export type GetTODOQueryVariables = {
@@ -247,7 +240,8 @@ export type GetTODOQuery = {
     __typename: "TODO",
     id: string,
     label: string,
-    priority: number,
+    predecessor?: string | null,
+    successor?: string | null,
     deadline?: string | null,
     description?: string | null,
     createdAt: string,
@@ -269,7 +263,8 @@ export type ListTODOSQuery = {
       __typename: "TODO",
       id: string,
       label: string,
-      priority: number,
+      predecessor?: string | null,
+      successor?: string | null,
       deadline?: string | null,
       description?: string | null,
       createdAt: string,
@@ -290,7 +285,8 @@ export type OnCreateTODOSubscription = {
     __typename: "TODO",
     id: string,
     label: string,
-    priority: number,
+    predecessor?: string | null,
+    successor?: string | null,
     deadline?: string | null,
     description?: string | null,
     createdAt: string,
@@ -309,7 +305,8 @@ export type OnUpdateTODOSubscription = {
     __typename: "TODO",
     id: string,
     label: string,
-    priority: number,
+    predecessor?: string | null,
+    successor?: string | null,
     deadline?: string | null,
     description?: string | null,
     createdAt: string,
@@ -328,7 +325,8 @@ export type OnDeleteTODOSubscription = {
     __typename: "TODO",
     id: string,
     label: string,
-    priority: number,
+    predecessor?: string | null,
+    successor?: string | null,
     deadline?: string | null,
     description?: string | null,
     createdAt: string,

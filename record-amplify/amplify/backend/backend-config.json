@@ -58,9 +58,30 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "RecordFunctionTestEcho": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "parameters": {
+    "AMPLIFY_function_RecordFunctionTestEcho_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "RecordFunctionTestEcho"
+        }
+      ]
+    },
+    "AMPLIFY_function_RecordFunctionTestEcho_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "RecordFunctionTestEcho"
+        }
+      ]
+    },
     "AMPLIFY_function_RecordFunctionTest_deploymentBucketName": {
       "usedBy": [
         {
