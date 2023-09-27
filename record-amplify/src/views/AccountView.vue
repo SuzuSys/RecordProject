@@ -7,6 +7,9 @@ import { useUserStore } from '@/stores/user';
 interface State {
   show_password_old: boolean;
   show_password_new: boolean;
+  text: {
+    username: String;
+  };
   model: {
     text_field: {
       email: string;
@@ -59,6 +62,9 @@ const userstore = useUserStore();
 const state: State = reactive<State>({
   show_password_new: false,
   show_password_old: false,
+  text: {
+    username: userstore.username,
+  },
   model: {
     text_field: {
       email: userstore.email,
@@ -231,7 +237,11 @@ async function changePassword(): Promise<void> {
     <v-card-title>Edit Account</v-card-title>
     <v-card-actions>
       <v-container class="pa-1">
+        <!-- username -->
+        <div class="text-subtitle-1 mx-1 mb-1">Username</div>
+        <div class="text-body-1 ml-4">{{ state.text.username }}</div>
         <!-- email -->
+        <div class="text-subtitle-1 mx-1 my-3">Edit email</div>
         <v-form>
           <v-row>
             <v-col cols="9">
@@ -360,6 +370,8 @@ async function changePassword(): Promise<void> {
         >
           -mail の更新中にエラーが発生しました．
         </v-alert>
+        <!-- password -->
+        <div class="text-subtitle-1 mx-1 my-3">Edit password</div>
         <!-- change password btn -->
         <v-btn
           @click="state.show.form.change_password = true"
