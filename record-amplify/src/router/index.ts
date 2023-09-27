@@ -17,6 +17,11 @@ const router = createRouter({
       name: 'AccountView',
       component: () => import('@/views/AccountView.vue'),
     },
+    {
+      path: '/recovery',
+      name: 'RecoveryView',
+      component: () => import('@/views/RecoveryView.vue'),
+    },
   ],
 });
 

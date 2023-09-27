@@ -79,8 +79,9 @@ async function asyncLoadUser(): Promise<void> {
     const {
       email,
       email_verified,
+      sub,
     } = user.attributes;
-    user_store.init(email, email_verified);
+    user_store.init(sub, email, email_verified);
     state.show.alert.error.load_user_info = false;
     state.model_value.overlay.loading = false;
     state.if.router_view.loaded_user_info = true;
