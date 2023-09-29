@@ -22,6 +22,11 @@ const router = createRouter({
       name: 'RecoveryView',
       component: () => import('@/views/RecoveryView.vue'),
     },
+    {
+      path: '/setup',
+      name: 'SetupIOSView',
+      component: () => import('@/views/SetupIOSView.vue'),
+    },
   ],
 });
 
