@@ -29,8 +29,18 @@ try:
       'REFRESH_TOKEN': config_dict['refresh_token'],
     },
   )
+  access_token = response['AuthenticationResult']['AccessToken']
+  expires_in = response['AuthenticationResult']['ExpiresIn']
+  access_date = response['ResponseMetadata']['HTTPHeaders']['date']
+
   print('---------------- access token response ---------------')
-  pprint(response)
+  print('access_token')
+  print(access_token)
+  print('expires_in')
+  print(expires_in)
+  print('access_date')
+  print(access_date)
+  
 except client.exceptions.NotAuthorizedException as e:
   exit(e)
 
