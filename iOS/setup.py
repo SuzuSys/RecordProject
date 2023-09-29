@@ -3,7 +3,7 @@ import re
 import json
 import yaml
 
-regex = re.compile(r'^RecordProject:')
+regex = re.compile(r'^RecordConfig:')
 config_json = regex.sub('', sys.argv[1])
 print(config_json)
 config_dict = json.loads(config_json)
