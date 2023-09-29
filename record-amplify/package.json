@@ -12,6 +12,7 @@
     "@aws-amplify/cli": "^12.4.0",
     "@aws-amplify/ui": "^5.8.1",
     "@aws-amplify/ui-vue": "^3.1.28",
+    "@chenfengyuan/vue-qrcode": "^2.0.0",
     "@mdi/font": "5.9.55",
     "aws-amplify": "^5.3.11",
     "pinia": "^2.1.6",
