@@ -3,6 +3,7 @@ import re
 import json
 import yaml
 import boto3
+from datetime import datetime, timedelta
 from botocore.config import Config
 from gql import gql, Client
 from gql.transport.requests import RequestsHTTPTransport
@@ -29,18 +30,10 @@ try:
       'REFRESH_TOKEN': config_dict['refresh_token'],
     },
   )
-  access_token = response['AuthenticationResult']['AccessToken']
+  config_dict['access_token'] = response['AuthenticationResult']['AccessToken']
   expires_in = response['AuthenticationResult']['ExpiresIn']
-  access_date = response['ResponseMetadata']['HTTPHeaders']['date']
-
-  print('---------------- access token response ---------------')
-  print('access_token')
-  print(access_token)
-  print('expires_in')
-  print(expires_in)
-  print('access_date')
-  print(access_date)
-  
+  expires_date = datetime.now() + timedelta(seconds=expires_in)
+  config_dict['expires_date'] = datetime.strftime(expires_date, '%Y-%m-%d %H:%M:%S')
 except client.exceptions.NotAuthorizedException as e:
   exit(e)
 
@@ -52,7 +45,7 @@ with open('credentials.yaml', 'w') as f:
 headers = {
   'Accept': 'application/json',
   'Content-Type': 'application/json',
-  'Authorization': config_dict['refresh_token'],
+  'Authorization': config_dict['access_token'],
 }
 transport = RequestsHTTPTransport(
   url=config_dict['appsync_graphqlEndpoint'],
