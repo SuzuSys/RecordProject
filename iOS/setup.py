@@ -32,7 +32,7 @@ try:
   )
   config_dict['access_token'] = response['AuthenticationResult']['AccessToken']
   expires_in = response['AuthenticationResult']['ExpiresIn']
-  expires_date = datetime.now() + timedelta(seconds=expires_in)
+  expires_date = datetime.now() + timedelta(seconds = expires_in-120)
   config_dict['expires_date'] = datetime.strftime(expires_date, '%Y-%m-%d %H:%M:%S')
 except client.exceptions.NotAuthorizedException as e:
   exit(e)
