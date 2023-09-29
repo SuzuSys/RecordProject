@@ -19,7 +19,11 @@
         },
         "RecordFunctionTestEcho": {
           "deploymentBucketName": "amplify-recordamplify-dev-101512-deployment",
-          "s3Key": "amplify-builds/RecordFunctionTestEcho-6c346d72614a63704268-build.zip"
+          "s3Key": "amplify-builds/RecordFunctionTestEcho-414b6e786a7973305275-build.zip"
+        },
+        "RecordFunctionVerifySetup": {
+          "deploymentBucketName": "amplify-recordamplify-dev-101512-deployment",
+          "s3Key": "amplify-builds/RecordFunctionVerifySetup-3938557a413234356134-build.zip"
         }
       },
       "auth": {

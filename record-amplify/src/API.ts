@@ -223,12 +223,8 @@ export type DeleteTODOMutation = {
   } | null,
 };
 
-export type EchoQueryVariables = {
-  txt?: string | null,
-};
-
-export type EchoQuery = {
-  echo?: string | null,
+export type VerifySetupQuery = {
+  verifySetup?: string | null,
 };
 
 export type GetTODOQueryVariables = {
