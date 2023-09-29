@@ -58,7 +58,10 @@ query = '''
     verifySetup
   }
 '''
-response = client.execute(gql(query))
-pprint(response)
-print()
-print('Application setup was completed!')
+try:
+  response = client.execute(gql(query))
+  pprint(response)
+  print()
+  print('Application setup was completed!')
+except Exception as e:
+  exit(e)

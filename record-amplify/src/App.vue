@@ -109,6 +109,11 @@ function goAccount(): void {
     router.push({ path: '/account' });
   }
 }
+function goSetup(): void {
+  if (route.path !== '/setup') {
+    router.push({ path: '/setup' });
+  }
+}
 </script>
 
 <template>
@@ -129,6 +134,11 @@ function goAccount(): void {
           prepend-icon="mdi-view-dashboard"
           title="Dashboard"
           @click="goDashboard"
+        ></v-list-item>
+        <v-list-item
+          prepend-icon="mdi-cellphone-cog"
+          title="iOS setup"
+          @click="goSetup"
         ></v-list-item>
       </v-list>
     </v-navigation-drawer>
