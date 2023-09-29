@@ -53,7 +53,7 @@ async function getSetupInfo() {
       appsync_graphqlEndpoint: aws_appsync_graphqlEndpoint,
       refresh_token,
     };
-    state.setup_config_str = 'RecordConfig:' + JSON.stringify(setup_config);
+    state.setup_config_str = JSON.stringify(setup_config);
     console.log(state.setup_config_str);
   } catch (e) {
     console.error(e);
