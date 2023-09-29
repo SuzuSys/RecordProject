@@ -63,6 +63,11 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "RecordFunctionVerifySetup": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "parameters": {
@@ -95,6 +100,22 @@
         {
           "category": "function",
           "resourceName": "RecordFunctionTest"
+        }
+      ]
+    },
+    "AMPLIFY_function_RecordFunctionVerifySetup_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "RecordFunctionVerifySetup"
+        }
+      ]
+    },
+    "AMPLIFY_function_RecordFunctionVerifySetup_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "RecordFunctionVerifySetup"
         }
       ]
     }

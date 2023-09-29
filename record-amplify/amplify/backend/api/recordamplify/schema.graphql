@@ -5,8 +5,8 @@
 type TODO @model @auth(rules: [
   { allow: owner }
 ]) {
-  id: ID!
-  label: String!
+  id: ID! @auth(rules: [{ allow: owner }])
+  label: String! @auth(rules: [{ allow: owner }])
   predecessor: String
   successor: String
   deadline: AWSDateTime # timestamp
@@ -14,7 +14,7 @@ type TODO @model @auth(rules: [
 }
 
 type Query {
-  echo(txt: String): String @function(name: "RecordFunctionTestEcho-${env}") @auth(rules: [
+  verifySetup: String @function(name: "RecordFunctionVerifySetup-${env}") @auth(rules: [
     { allow: private }
   ])
 }
