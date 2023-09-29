@@ -58,7 +58,7 @@ query = '''
     verifySetup
   }
 '''
-# response = client.execute(gql(query))
-# pprint(response)
-# print()
-# print('Application setup was completed!')
+response = client.execute(gql(query))
+pprint(response)
+print()
+print('Application setup was completed!')
