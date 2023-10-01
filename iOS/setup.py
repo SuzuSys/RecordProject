@@ -30,7 +30,7 @@ def new_init(
     print('encoding')
     print(encoding)
     if encoding == 'Windows-31J':
-      return self.content.decode('utf-8')
+      return self.content.decode('cp932')
     elif encoding:
       return self.content.decode(encoding)
     else:
