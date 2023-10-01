@@ -4,3 +4,4 @@ curl -L https://raw.githubusercontent.com/SuzuSys/RecordProject/main/iOS/API.py 
 curl -L https://raw.githubusercontent.com/SuzuSys/RecordProject/main/iOS/requirements.txt -o requirements.txt
 pip install -r requirements.txt
 python setup.py $1
+open shortcuts://
