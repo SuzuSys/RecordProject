@@ -22,6 +22,7 @@ def new_init(
   botocore_session=None,
   profile_name=None,
 ):
+  print('hello, Can you look me?')
   def text(self):
     encoding = get_encoding_from_headers(self.headers)
     print('encoding')
