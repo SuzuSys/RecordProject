@@ -9,6 +9,10 @@ from gql import gql, Client
 from gql.transport.requests import RequestsHTTPTransport
 from pprint import pprint
 
+# overwrite output.txt
+with open('output.txt', 'w') as f:
+  f.write('INITIALIZED')
+
 # monkey patch
 from botocore.utils import get_encoding_from_headers
 from botocore.awsrequest import AWSResponse
@@ -49,15 +53,17 @@ try:
   config_json = regex.sub('', sys.argv[1])
   config_dict = json.loads(config_json)
 except Exception as e:
+  with open('output.txt', 'w') as f:
+    f.write('An error occurred while parsing clipboard text.')
   exit(e)
 
 # get access token
-print('Attempting to create a cognito identity provider instance...')
-client = boto3.client(
-  'cognito-idp',
-  config=Config(region_name=config_dict['project_region'], signature_version='v4')
-)
 try:
+  print('Attempting to create a cognito identity provider instance...')
+  client = boto3.client(
+    'cognito-idp',
+    config=Config(region_name=config_dict['project_region'], signature_version='v4')
+  )
   print('Attempting to sign-in by a refresh token...')
   response = client.initiate_auth(
     AuthFlow='REFRESH_TOKEN',
@@ -70,7 +76,9 @@ try:
   expires_in = response['AuthenticationResult']['ExpiresIn']
   expires_date = datetime.now() + timedelta(seconds = expires_in-120)
   config_dict['expires_date'] = datetime.strftime(expires_date, '%Y-%m-%d %H:%M:%S')
-except client.exceptions.NotAuthorizedException as e:
+except Exception as e:
+  with open('output.txt', 'w') as f:
+    f.write('An error occurred while signing in.')
   exit(e)
 
 # save configuration
@@ -99,7 +107,10 @@ try:
   response = client.execute(gql(query))
   pprint(response)
   print()
-  print('Application setup was completed!')
-  # sys.exit(0)
+  print('Setup completed successfully!')
+  with open('output.txt', 'w') as f:
+    f.write('SUCCESS')
 except Exception as e:
+  with open('output.txt', 'w') as f:
+    f.write('An error occurred while a query is being processed.')
   exit(e)
