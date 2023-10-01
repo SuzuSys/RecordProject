@@ -6,4 +6,5 @@ pip install -r requirements.txt
 python setup.py $1
 output=$?
 echo $output
+echo Hey!!!!
 open shortcuts://
