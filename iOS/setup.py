@@ -4,6 +4,7 @@ import json
 import yaml
 import boto3
 import botocore
+from botocore import Config
 from datetime import datetime, timedelta
 from gql import gql, Client
 from gql.transport.requests import RequestsHTTPTransport
@@ -53,7 +54,7 @@ except Exception as e:
 # get access token
 client = boto3.client(
   'cognito-idp',
-  config=botocore.Config(region_name=config_dict['project_region'], signature_version='v4')
+  config=Config(region_name=config_dict['project_region'], signature_version='v4')
 )
 try:
   response = client.initiate_auth(
