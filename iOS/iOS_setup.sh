@@ -5,5 +5,5 @@ curl -L https://raw.githubusercontent.com/SuzuSys/RecordProject/main/iOS/require
 pip install -r requirements.txt
 python setup.py $1
 output=$?
-cat $output
+echo $output
 open shortcuts://
