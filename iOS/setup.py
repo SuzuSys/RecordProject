@@ -4,13 +4,14 @@ import json
 import yaml
 import boto3
 import botocore
-from botocore import Config
+from botocore.config import Config
 from datetime import datetime, timedelta
 from gql import gql, Client
 from gql.transport.requests import RequestsHTTPTransport
 from pprint import pprint
 
 # monkey patch
+from botocore.utils import get_encoding_from_headers
 old_init = boto3.Session.__init__
 def new_init(
   self,
@@ -22,7 +23,7 @@ def new_init(
   profile_name=None,
 ):
   def text(self):
-    encoding = botocore.utils.get_encoding_from_headers(self.headers)
+    encoding = get_encoding_from_headers(self.headers)
     print('encoding')
     print(encoding)
     if encoding == 'Windows-31J':
