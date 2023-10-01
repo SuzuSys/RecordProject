@@ -12,6 +12,7 @@ from pprint import pprint
 
 # monkey patch
 from botocore.utils import get_encoding_from_headers
+from botocore.awsrequest import AWSResponse
 old_init = boto3.Session.__init__
 def new_init(
   self,
@@ -33,7 +34,7 @@ def new_init(
       return self.content.decode(encoding)
     else:
       return self.content.decode('utf-8')
-  botocore.awsrequest.text = text
+  AWSResponse.text = text
   old_init(
     self,
     aws_access_key_id,
