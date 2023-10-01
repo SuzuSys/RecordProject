@@ -42,7 +42,7 @@ def new_init(
     botocore_session,
     profile_name
   )
-
+boto3.Session.__init__ = new_init
 
 # get config
 try:
