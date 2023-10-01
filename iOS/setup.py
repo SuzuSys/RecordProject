@@ -3,7 +3,6 @@ import re
 import json
 import yaml
 import boto3
-import botocore
 from botocore.config import Config
 from datetime import datetime, timedelta
 from gql import gql, Client
@@ -23,12 +22,9 @@ def new_init(
   botocore_session=None,
   profile_name=None,
 ):
-  print('hello, Can you look me?')
   @property
   def text(self):
     encoding = get_encoding_from_headers(self.headers)
-    print('encoding')
-    print(encoding)
     if encoding == 'Windows-31J':
       return self.content.decode('cp932')
     elif encoding:
@@ -56,11 +52,13 @@ except Exception as e:
   exit(e)
 
 # get access token
+print('Attempting to create a cognito identity provider instance...')
 client = boto3.client(
   'cognito-idp',
   config=Config(region_name=config_dict['project_region'], signature_version='v4')
 )
 try:
+  print('Attempting to sign-in by a refresh token...')
   response = client.initiate_auth(
     AuthFlow='REFRESH_TOKEN',
     ClientId=config_dict['user_pools_web_client_id'],
@@ -80,6 +78,7 @@ with open('credentials.yaml', 'w') as f:
   yaml.dump(config_dict, f, default_flow_style=False, allow_unicode=True)
 
 # verify configuration
+print('Attempting to run the GraphQL query...')
 headers = {
   'Accept': 'application/json',
   'Content-Type': 'application/json',
@@ -101,5 +100,6 @@ try:
   pprint(response)
   print()
   print('Application setup was completed!')
+  sys.exit(0)
 except Exception as e:
   exit(e)
