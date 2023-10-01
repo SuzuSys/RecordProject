@@ -13,6 +13,8 @@ from pprint import pprint
 import botocore
 def text(self):
   encoding = botocore.utils.get_encoding_from_headers(self.headers)
+  print('encoding')
+  print(encoding)
   if encoding == 'Windows-31J':
     return self.content.decode('utf-8')
   elif encoding:
