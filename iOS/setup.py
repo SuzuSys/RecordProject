@@ -100,6 +100,6 @@ try:
   pprint(response)
   print()
   print('Application setup was completed!')
-  sys.exit(0)
+  # sys.exit(0)
 except Exception as e:
   exit(e)
