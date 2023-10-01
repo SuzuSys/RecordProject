@@ -24,6 +24,7 @@ def new_init(
   profile_name=None,
 ):
   print('hello, Can you look me?')
+  @property
   def text(self):
     encoding = get_encoding_from_headers(self.headers)
     print('encoding')
