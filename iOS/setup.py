@@ -9,6 +9,18 @@ from gql import gql, Client
 from gql.transport.requests import RequestsHTTPTransport
 from pprint import pprint
 
+# monkey patch
+import botocore
+def text(self):
+  encoding = botocore.utils.get_encoding_from_headers(self.headers)
+  if encoding == 'Windows-31J':
+    return self.content.decode('utf-8')
+  elif encoding:
+    return self.content.decode(encoding)
+  else:
+    return self.content.decode('utf-8')
+botocore.awsrequest.text = text
+
 # get config
 try:
   regex = re.compile(r'^RecordConfig:')
@@ -41,7 +53,7 @@ except client.exceptions.NotAuthorizedException as e:
 with open('credentials.yaml', 'w') as f:
   yaml.dump(config_dict, f, default_flow_style=False, allow_unicode=True)
 
-# Verify configuration
+# verify configuration
 headers = {
   'Accept': 'application/json',
   'Content-Type': 'application/json',
