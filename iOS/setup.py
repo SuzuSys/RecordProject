@@ -3,25 +3,44 @@ import re
 import json
 import yaml
 import boto3
+import botocore
 from datetime import datetime, timedelta
-from botocore.config import Config
 from gql import gql, Client
 from gql.transport.requests import RequestsHTTPTransport
 from pprint import pprint
 
 # monkey patch
-import botocore
-def text(self):
-  encoding = botocore.utils.get_encoding_from_headers(self.headers)
-  print('encoding')
-  print(encoding)
-  if encoding == 'Windows-31J':
-    return self.content.decode('utf-8')
-  elif encoding:
-    return self.content.decode(encoding)
-  else:
-    return self.content.decode('utf-8')
-botocore.awsrequest.text = text
+old_init = boto3.Session.__init__
+def new_init(
+  self,
+  aws_access_key_id=None,
+  aws_secret_access_key=None,
+  aws_session_token=None,
+  region_name=None,
+  botocore_session=None,
+  profile_name=None,
+):
+  def text(self):
+    encoding = botocore.utils.get_encoding_from_headers(self.headers)
+    print('encoding')
+    print(encoding)
+    if encoding == 'Windows-31J':
+      return self.content.decode('utf-8')
+    elif encoding:
+      return self.content.decode(encoding)
+    else:
+      return self.content.decode('utf-8')
+  botocore.awsrequest.text = text
+  old_init(
+    self,
+    aws_access_key_id,
+    aws_secret_access_key,
+    aws_session_token,
+    region_name,
+    botocore_session,
+    profile_name
+  )
+
 
 # get config
 try:
@@ -34,7 +53,7 @@ except Exception as e:
 # get access token
 client = boto3.client(
   'cognito-idp',
-  config=Config(region_name=config_dict['project_region'], signature_version='v4')
+  config=botocore.Config(region_name=config_dict['project_region'], signature_version='v4')
 )
 try:
   response = client.initiate_auth(
