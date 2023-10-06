@@ -23,7 +23,11 @@
         },
         "RecordFunctionVerifySetup": {
           "deploymentBucketName": "amplify-recordamplify-dev-101512-deployment",
-          "s3Key": "amplify-builds/RecordFunctionVerifySetup-464c784e6b326e42464d-build.zip"
+          "s3Key": "amplify-builds/RecordFunctionVerifySetup-6439616676387a622b47-build.zip"
+        },
+        "recordamplifyLifeCycleTimestreamOperationLayer": {
+          "deploymentBucketName": "amplify-recordamplify-dev-101512-deployment",
+          "s3Key": "amplify-builds/recordamplifyLifeCycleTimestreamOperationLayer-LambdaLayerVersione8204a0e-build.zip"
         }
       },
       "auth": {

@@ -64,7 +64,7 @@ try:
     'cognito-idp',
     config=Config(region_name=config_dict['project_region'], signature_version='v4')
   )
-  print('Attempting to sign-in by a refresh token...')
+  print('Attempting to sign in by a refresh token...')
   response = client.initiate_auth(
     AuthFlow='REFRESH_TOKEN',
     ClientId=config_dict['user_pools_web_client_id'],
