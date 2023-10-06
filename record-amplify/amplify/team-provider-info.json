@@ -15,15 +15,15 @@
       "function": {
         "RecordFunctionTest": {
           "deploymentBucketName": "amplify-recordamplify-dev-101512-deployment",
-          "s3Key": "amplify-builds/RecordFunctionTest-6c4e6d4e38496146306c-build.zip"
+          "s3Key": "amplify-builds/RecordFunctionTest-566e66436d4445614946-build.zip"
         },
         "RecordFunctionTestEcho": {
           "deploymentBucketName": "amplify-recordamplify-dev-101512-deployment",
-          "s3Key": "amplify-builds/RecordFunctionTestEcho-414b6e786a7973305275-build.zip"
+          "s3Key": "amplify-builds/RecordFunctionTestEcho-51635442356a30443464-build.zip"
         },
         "RecordFunctionVerifySetup": {
           "deploymentBucketName": "amplify-recordamplify-dev-101512-deployment",
-          "s3Key": "amplify-builds/RecordFunctionVerifySetup-3938557a413234356134-build.zip"
+          "s3Key": "amplify-builds/RecordFunctionVerifySetup-464c784e6b326e42464d-build.zip"
         }
       },
       "auth": {
