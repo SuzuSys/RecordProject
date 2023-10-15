@@ -1,12 +1,12 @@
 import json
-import boto3
+import yaml
+import package_test
 
 def handler(event, context):
-  print('received event:')
-  print(event)
-  print('boto3')
-  print(boto3)
-  
+  with open('/opt/config.yaml', 'r') as f:
+    print(f)
+  print(yaml)
+  print(package_test.calc(2, 3))
   return {
       'statusCode': 200,
       'headers': {

@@ -61,6 +61,15 @@
     },
     "RecordFunctionTestEcho": {
       "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "recordamplifyLifeCycleTimestreamOperationLayer"
+        }
+      ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
@@ -68,6 +77,11 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "recordamplifyLifeCycleTimestreamOperationLayer": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "LambdaLayer"
     }
   },
   "parameters": {
@@ -116,6 +130,22 @@
         {
           "category": "function",
           "resourceName": "RecordFunctionVerifySetup"
+        }
+      ]
+    },
+    "AMPLIFY_function_recordamplifyLifeCycleTimestreamOperationLayer_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "recordamplifyLifeCycleTimestreamOperationLayer"
+        }
+      ]
+    },
+    "AMPLIFY_function_recordamplifyLifeCycleTimestreamOperationLayer_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "recordamplifyLifeCycleTimestreamOperationLayer"
         }
       ]
     }

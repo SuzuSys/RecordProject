@@ -35,6 +35,9 @@ export type AmplifyDependentResourcesAttributes = {
       "LambdaExecutionRoleArn": "string",
       "Name": "string",
       "Region": "string"
+    },
+    "recordamplifyLifeCycleTimestreamOperationLayer": {
+      "Arn": "string"
     }
   }
 }
