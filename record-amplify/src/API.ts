@@ -227,6 +227,10 @@ export type VerifySetupQuery = {
   verifySetup?: string | null,
 };
 
+export type TestQuery = {
+  test?: string | null,
+};
+
 export type GetTODOQueryVariables = {
   id: string,
 };

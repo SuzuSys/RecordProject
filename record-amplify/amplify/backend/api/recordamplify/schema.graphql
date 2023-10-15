@@ -9,12 +9,15 @@ type TODO @model @auth(rules: [
   label: String! @auth(rules: [{ allow: owner }])
   predecessor: String
   successor: String
-  deadline: AWSDateTime # timestamp
-  description: String
+  deadline: AWSDateTime
+  description: String # jousei
 }
 
 type Query {
   verifySetup: String @function(name: "RecordFunctionVerifySetup-${env}") @auth(rules: [
+    { allow: private }
+  ])
+  test: String @function(name: "RecordFunctionTestEcho-${env}") @auth(rules: [
     { allow: private }
   ])
 }

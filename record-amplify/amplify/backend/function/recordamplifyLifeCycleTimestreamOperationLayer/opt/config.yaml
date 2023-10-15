@@ -1,1 +1,2 @@
-DatabaseName: record-suzusys
+database_name: record-suzusys
+table_name: LifeCycle
