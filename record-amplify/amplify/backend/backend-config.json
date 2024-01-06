@@ -54,11 +54,6 @@
     }
   },
   "function": {
-    "RecordFunctionTest": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
     "RecordFunctionTestEcho": {
       "build": true,
       "dependsOn": [
@@ -98,22 +93,6 @@
         {
           "category": "function",
           "resourceName": "RecordFunctionTestEcho"
-        }
-      ]
-    },
-    "AMPLIFY_function_RecordFunctionTest_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "RecordFunctionTest"
-        }
-      ]
-    },
-    "AMPLIFY_function_RecordFunctionTest_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "RecordFunctionTest"
         }
       ]
     },

@@ -13,13 +13,9 @@
     },
     "categories": {
       "function": {
-        "RecordFunctionTest": {
-          "deploymentBucketName": "amplify-recordamplify-dev-101512-deployment",
-          "s3Key": "amplify-builds/RecordFunctionTest-566e66436d4445614946-build.zip"
-        },
         "RecordFunctionTestEcho": {
           "deploymentBucketName": "amplify-recordamplify-dev-101512-deployment",
-          "s3Key": "amplify-builds/RecordFunctionTestEcho-7554706a314152447347-build.zip"
+          "s3Key": "amplify-builds/RecordFunctionTestEcho-52316349435967664477-build.zip"
         },
         "RecordFunctionVerifySetup": {
           "deploymentBucketName": "amplify-recordamplify-dev-101512-deployment",
