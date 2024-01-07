@@ -22,6 +22,13 @@ export type AmplifyDependentResourcesAttributes = {
       "Name": "string",
       "Region": "string"
     },
+    "RecordFunctionTestRDS": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
     "RecordFunctionVerifySetup": {
       "Arn": "string",
       "LambdaExecutionRole": "string",

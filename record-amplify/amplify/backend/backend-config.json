@@ -68,6 +68,11 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "RecordFunctionTestRDS": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "RecordFunctionVerifySetup": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -93,6 +98,22 @@
         {
           "category": "function",
           "resourceName": "RecordFunctionTestEcho"
+        }
+      ]
+    },
+    "AMPLIFY_function_RecordFunctionTestRDS_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "RecordFunctionTestRDS"
+        }
+      ]
+    },
+    "AMPLIFY_function_RecordFunctionTestRDS_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "RecordFunctionTestRDS"
         }
       ]
     },

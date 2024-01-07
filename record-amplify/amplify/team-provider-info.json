@@ -24,6 +24,10 @@
         "recordamplifyLifeCycleTimestreamOperationLayer": {
           "deploymentBucketName": "amplify-recordamplify-dev-101512-deployment",
           "s3Key": "amplify-builds/recordamplifyLifeCycleTimestreamOperationLayer-LambdaLayerVersion0194f27c-build.zip"
+        },
+        "RecordFunctionTestRDS": {
+          "deploymentBucketName": "amplify-recordamplify-dev-101512-deployment",
+          "s3Key": "amplify-builds/RecordFunctionTestRDS-41463170666b4a436132-build.zip"
         }
       },
       "auth": {
